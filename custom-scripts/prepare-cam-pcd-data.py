@@ -11,6 +11,14 @@ import os
 from sklearn.neighbors import KDTree
 from sklearn.model_selection import train_test_split
 
+"""
+This script is used to prepare the cam pcd data for training and testing.
+It will divide the whole point cloud into cubes and save the cubes into a pickle file. ]
+The cube size, minimum points number in each cube, maximum points number in each cube can be specified by the user. 
+The output pickle file will contain the points and meta data of each cube.
+The meta data includes the shift, max_coord and min_coord of the original point cloud,
+which can be used to recover the original point cloud from the normalized point cloud.
+"""
 
 def generate_path_list(ply_path, output_path, model_name):
     data_path = os.listdir(ply_path)

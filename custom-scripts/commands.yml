@@ -1,0 +1,26 @@
+nohup python -u custom-scripts/prepare-cam-pcd-data.py \
+  --data_root "/home/aniruth/Desktop/Courses/Independent - Study/D-PCC/data/kitti-semantic/2011_09_26" \
+  --cube_size 12 > prepare_cam_pcd_log.txt 2>&1 &
+
+python custom-scripts/prepare-cam-pcd-data.py \
+  --data_root "/home/aniruth/Desktop/Courses/Independent - Study/D-PCC/data/kitti-semantic/2011_09_26" \
+  --cube_size 12
+
+nohup python -u train-with-resume.py --dataset semantickitti \
+    --resume_path "/home/aniruth/Desktop/Courses/Independent - Study/D-PCC/output/2025-10-28T16:42:32.869081/ckpt/ckpt-best-22.pth" \
+    > resume_log.txt 2>&1 &
+
+
+nohup python -u custom-scripts/train-with-resume.py --dataset semantickitti \
+    --resume_path "/home/aniruth/Desktop/Courses/Independent - Study/D-PCC/output/2025-10-28T16:42:32.869081/ckpt/ckpt-best-22.pth" \
+    > resume_log.txt 2>&1 &
+
+
+python custom-scripts/test-updated.py --dataset semantickitti \
+    --model_path "/home/aniruth/Desktop/Courses/Independent - Study/D-PCC/output/2025-10-31T03:07:02.977277/ckpt/ckpt-best.pth"
+
+
+nohup python -u train-with-resume.py --dataset semantickitti \
+    > resume_log.txt 2>&1 &
+
+

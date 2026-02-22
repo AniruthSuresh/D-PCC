@@ -87,6 +87,10 @@ data
 
 ## Train
 
+>[!NOTE]
+>Check the `custom_scripts/commands.yml` for all the commands required for data prep , training and testing for semantickitti . 
+
+
 * Position Compression
 
 ```
